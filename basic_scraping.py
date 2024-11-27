@@ -1,9 +1,6 @@
 from bs4 import BeautifulSoup
-import requests
 
-# Beautiful Soup test
-
-# A short test document provided by the Beautiful Soup documentation.
+# Learning basic BeautifulSoup functionality
 
 html_doc = """<html><head><title>The Dormouse's story</title></head>
 <body>
@@ -18,13 +15,15 @@ and they lived at the bottom of a well.</p>
 <p class="story">...</p>
 """
 
-# Create soup
-soup = BeautifulSoup(html_doc)
+soup = BeautifulSoup(html_doc, 'html.parser')  # html.parser removes error messages
 
-# Test if its working
-print(soup.title)
-print(soup.p)
+# prettify() formats the string with a nested structure
+print(soup.prettify())
 
-# Test requests
-response = requests.get("https://wikipedia.org/")
-print(response.text)
+print(soup.title, '\n')
+print(soup.title.string, '\n')
+
+print(soup.p.b, '\n')
+
+print(soup.p['class'], '\n')
+print(soup.a['href'], '\n')

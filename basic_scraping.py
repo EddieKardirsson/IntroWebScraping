@@ -27,3 +27,11 @@ print(soup.p.b, '\n')
 
 print(soup.p['class'], '\n')
 print(soup.a['href'], '\n')
+
+print(soup.find(href="http://example.com/lacie"), '\n')
+print(soup.find(class_="story"), '\n')
+
+a_tags = soup.find_all('a')
+print(a_tags[2])
+
+print(soup.find_all(['a', 'title']))

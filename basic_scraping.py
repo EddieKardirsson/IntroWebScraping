@@ -17,6 +17,7 @@ and they lived at the bottom of a well.</p>
 
 soup = BeautifulSoup(html_doc, 'html.parser')  # html.parser removes error messages
 
+
 # prettify() formats the string with a nested structure
 print(soup.prettify())
 
@@ -35,3 +36,27 @@ a_tags = soup.find_all('a')
 print(a_tags[2])
 
 print(soup.find_all(['a', 'title']))
+
+
+p = soup.find(class_="story")
+print(p.contents, '\n')
+
+for child in p.children:
+    print(child)
+
+body = soup.find('body')
+print(body.contents, '\n')
+print(len(body.contents), '\n')
+
+print(list(body.descendants), '\n')
+print(len(list(body.descendants)), '\n')
+
+
+print(soup.a.parent)
+
+for p in soup.a.parents:
+    print(p.name)
+
+a = soup.a
+print(a.next_sibling.next_sibling)
+print(a.next_sibling.previous_sibling)
